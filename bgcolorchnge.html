@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="colorInput" placeholder="Enter a color">
+    <br><br>
+    <div id="myDiv">Type a color in the text box</div>
+
+    <script>
+        $(document).ready(function() {
+            $('#colorInput').on('input', function() {
+                var color = $(this).val();
+                $('#myDiv').css('background-color', color);
+                $('#myDiv').text(color);
+            });
+        });
+    </script>
+</body>
+
+</html>

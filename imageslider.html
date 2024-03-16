@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .slider-container {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .slider-button-left {
+            left: 10px;
+        }
+        
+        .slider-button-right {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <img class="slider-image" src="image1.jpg" alt="Image 1">
+        <button class="slider-button slider-button-left" onclick="previousImage()">Previous</button>
+        <button class="slider-button slider-button-right" onclick="nextImage()">Next</button>
+    </div>
+
+    <script>
+        var currentImage = 1;
+        var totalImages = 3;
+
+        function previousImage() {
+            if (currentImage > 1) {
+                currentImage--;
+            } else {
+                currentImage = totalImages;
+            }
+            updateImage();
+        }
+
+        function nextImage() {
+            if (currentImage < totalImages) {
+                currentImage++;
+            } else {
+                currentImage = 1;
+            }
+            updateImage();
+        }
+
+        function updateImage() {
+            var imageElement = document.querySelector('.slider-image');
+            imageElement.src = 'image' + currentImage + '.jpg';
+            imageElement.alt = 'Image ' + currentImage;
+        }
+    </script>
+</body>
+
+</html>
